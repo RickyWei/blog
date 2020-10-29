@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>C++对象模型 | Think More</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/blog/icon.png">
+    <meta name="description" content="Think More, Code Less">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.740403a2.css" as="style"><link rel="preload" href="/blog/assets/js/app.5f3e7cf8.js" as="script"><link rel="preload" href="/blog/assets/js/2.8592cb03.js" as="script"><link rel="preload" href="/blog/assets/js/16.d7fd8582.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.2ac9a85f.js"><link rel="prefetch" href="/blog/assets/js/11.110cebd9.js"><link rel="prefetch" href="/blog/assets/js/12.7fadadd0.js"><link rel="prefetch" href="/blog/assets/js/13.153d651b.js"><link rel="prefetch" href="/blog/assets/js/14.9556b613.js"><link rel="prefetch" href="/blog/assets/js/15.1c968139.js"><link rel="prefetch" href="/blog/assets/js/17.ee8c3f79.js"><link rel="prefetch" href="/blog/assets/js/18.7f65bcc5.js"><link rel="prefetch" href="/blog/assets/js/19.f44a4c4a.js"><link rel="prefetch" href="/blog/assets/js/20.62a1fef1.js"><link rel="prefetch" href="/blog/assets/js/21.c1d513b7.js"><link rel="prefetch" href="/blog/assets/js/22.b2d838a0.js"><link rel="prefetch" href="/blog/assets/js/23.a61337c9.js"><link rel="prefetch" href="/blog/assets/js/24.17abc0e3.js"><link rel="prefetch" href="/blog/assets/js/25.e95567d3.js"><link rel="prefetch" href="/blog/assets/js/26.0a5059f0.js"><link rel="prefetch" href="/blog/assets/js/27.fbad6ca9.js"><link rel="prefetch" href="/blog/assets/js/3.b7e86699.js"><link rel="prefetch" href="/blog/assets/js/4.8e3657e3.js"><link rel="prefetch" href="/blog/assets/js/5.d1266ca5.js"><link rel="prefetch" href="/blog/assets/js/6.15a4430d.js"><link rel="prefetch" href="/blog/assets/js/7.2b290904.js"><link rel="prefetch" href="/blog/assets/js/8.40cc5e80.js"><link rel="prefetch" href="/blog/assets/js/9.547891b4.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.740403a2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Think More</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow down"></span></button> <button type="button" aria-label="Blog" class="mobile-dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/cpp/" class="nav-link">
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/network/" class="nav-link">
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/os/" class="nav-link">
+  OS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/design/" class="nav-link">
+  Design
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/collection/" class="nav-link">
+  collection
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/RickyWei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.linkedin.com/in/ruiji-wei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/blog/pages/001cpp/.html" class="nav-link">
+  WeChat
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow down"></span></button> <button type="button" aria-label="Blog" class="mobile-dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/cpp/" class="nav-link">
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/network/" class="nav-link">
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/os/" class="nav-link">
+  OS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/design/" class="nav-link">
+  Design
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/collection/" class="nav-link">
+  collection
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/RickyWei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.linkedin.com/in/ruiji-wei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/blog/pages/001cpp/.html" class="nav-link">
+  WeChat
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>001cpp</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/001cpp/001compile.html" class="sidebar-link">C++编译流程</a></li><li><a href="/blog/pages/001cpp/002asm.html" class="sidebar-link">汇编</a></li><li><a href="/blog/pages/001cpp/003macro.html" class="sidebar-link">宏</a></li><li><a href="/blog/pages/001cpp/004variableMemory.html" class="sidebar-link">各类变量存储区</a></li><li><a href="/blog/pages/001cpp/005static.html" class="sidebar-link">Static用法</a></li><li><a href="/blog/pages/001cpp/006extern.html" class="sidebar-link">extern用法</a></li><li><a href="/blog/pages/001cpp/007pointerreference.html" class="sidebar-link">指针和引用</a></li><li><a href="/blog/pages/001cpp/008newmalloc.html" class="sidebar-link">new与malloc</a></li><li><a href="/blog/pages/001cpp/009funcreload.html" class="sidebar-link">函数重载</a></li><li><a href="/blog/pages/001cpp/010inline.html" class="sidebar-link">内联函数</a></li><li><a href="/blog/pages/001cpp/011objectmodel.html" aria-current="page" class="active sidebar-link">C++对象模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/pages/001cpp/011objectmodel.html#类的大小" class="sidebar-link">类的大小</a></li><li class="sidebar-sub-header"><a href="/blog/pages/001cpp/011objectmodel.html#虚函数" class="sidebar-link">虚函数</a></li><li class="sidebar-sub-header"><a href="/blog/pages/001cpp/011objectmodel.html#多继承" class="sidebar-link">多继承</a></li></ul></li><li><a href="/blog/pages/001cpp/" aria-current="page" class="sidebar-link">C++</a></li></ul></section></li></ul> </aside> <a href="https://github.com/RickyWei" target="_blank" rel="noopener" class="github-link active"><p class="nes-balloon from-right">Follow me<br>on GitHub</p> <i class="nes-octocat"></i></a> <main class="page"> <div class="theme-default-content content__default" style="font-family:consolas;"><h1 id="c-对象模型"><a href="#c-对象模型" class="header-anchor">#</a> C++对象模型</h1> <h2 id="类的大小"><a href="#类的大小" class="header-anchor">#</a> 类的大小</h2> <ol><li>空类占1B
+<ol><li>编译器添加1B，目的是让该类可以实例化，因为实例化其实就是分配地址，若为0无法分配</li></ol></li> <li>类的数据按类型和字节对齐占用空间
+<ol><li>结构体变量的首地址能够被其最宽基本类型成员的大小所整除</li> <li>结构体每个成员相对于结构体首地址的偏移量都是成员大小的整数倍，如有需要编译器会在成员之间加上填充字节</li> <li>结构体的总大小为结构体最宽基本类型成员大小的整数倍，如有需要编译器会在最末一个成员之后加上填充字节</li></ol></li> <li>类的普通函数不占字节</li> <li>类的虚函数不占字节，但是会引入虚表指针，整个类占8B(该类仅包含一个虚函数)</li></ol> <div class="language-cpp line-numbers-mode"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+  <span class="token keyword">double</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// g++ -fdump-lang-class base.cc</span>
+<span class="token comment">// Class Base</span>
+<span class="token comment">//    size=16 align=8</span>
+<span class="token comment">//    base size=16 base align=8</span>
+<span class="token comment">// Base (0x0x7fe8a9e11420) 0</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Base</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// Class Derived</span>
+<span class="token comment">//    size=24 align=8</span>
+<span class="token comment">//    base size=17 base align=8</span>
+<span class="token comment">// Derived (0x0x7f23bcd1e548) 0</span>
+<span class="token comment">//   Base (0x0x7f23bce0c4e0) 0</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="虚函数"><a href="#虚函数" class="header-anchor">#</a> 虚函数</h2> <ol><li>每个类都有一个虚函数表，存放虚函数指针</li> <li>若子类重写虚函数，函数指针变化
+<ol><li>重载：函数名相同，函数的参数个数、参数类型或参数顺序三者中必须至少有一种不同</li> <li>重定义：也叫做隐藏，子类重新定义父类中有相同名称的非虚函数 ( 参数列表可以不同 ) ，指派生类的函数屏蔽了与其同名的基类函数</li> <li>重写：也叫做覆盖，一般发生在子类和父类继承关系之间，子类重新定义父类中有相同名称和参数的虚函数 override</li></ol></li> <li>子类虚函数表和基类相同，正因如此，子类的指针slice为基类指针时仍然能正确访问虚函数表</li> <li>g++ 中vtable位于类的开始，然后基类成员变量，最后子类成员变量</li> <li>g++ 中vptr同样位于类的开始</li> <li>当添加虚析构函数后，vtable有两个析构函数
+<ol><li>complete object destructor，只执行析构函数不delete()</li> <li>deleting destructor，真正delete()</li></ol></li></ol> <div class="language-cpp line-numbers-mode"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+  <span class="token keyword">double</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">vfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">vfunc</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Base&quot;</span> <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Base</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">vfunc</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> override <span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Derived&quot;</span> <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// Vtable for Base</span>
+<span class="token comment">// Base::_ZTV4Base: 4 entries</span>
+<span class="token comment">// 0     (int (*)(...))0</span>
+<span class="token comment">// 8     (int (*)(...))(&amp; _ZTI4Base)</span>
+<span class="token comment">// 16    (int (*)(...))Base::vfunc</span>
+<span class="token comment">// 24    (int (*)(...))Base::vfunc</span>
+
+<span class="token comment">// Class Base</span>
+<span class="token comment">//    size=24 align=8</span>
+<span class="token comment">//    base size=24 base align=8</span>
+<span class="token comment">// Base (0x0x7fe98a7be420) 0</span>
+<span class="token comment">//     vptr=((&amp; Base::_ZTV4Base) + 16)</span>
+
+<span class="token comment">// Vtable for Derived</span>
+<span class="token comment">// Derived::_ZTV7Derived: 4 entries</span>
+<span class="token comment">// 0     (int (*)(...))0</span>
+<span class="token comment">// 8     (int (*)(...))(&amp; _ZTI7Derived)</span>
+<span class="token comment">// 16    (int (*)(...))Base::vfunc</span>
+<span class="token comment">// 24    (int (*)(...))Derived::vfunc</span>
+
+<span class="token comment">// Class Derived</span>
+<span class="token comment">//    size=32 align=8</span>
+<span class="token comment">//    base size=25 base align=8</span>
+<span class="token comment">// Derived (0x0x7fe98a6d0548) 0</span>
+<span class="token comment">//     vptr=((&amp; Derived::_ZTV7Derived) + 16)</span>
+<span class="token comment">//   Base (0x0x7fe98a7be5a0) 0</span>
+<span class="token comment">//       primary-for Derived (0x0x7fe98a6d0548)</span>
+
+
+<span class="token comment">// use address to call vfunc</span>
+Base b<span class="token punctuation">;</span>
+Derived d<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>Func<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>Func2<span class="token punctuation">)</span><span class="token punctuation">(</span>Base <span class="token operator">*</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token operator">*</span>vptr_addr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>size_t <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token operator">*</span>func_addr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>size_t <span class="token operator">*</span><span class="token punctuation">)</span>vptr_addr <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Func f <span class="token operator">=</span> <span class="token punctuation">(</span>Func<span class="token punctuation">)</span>func_addr<span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">666</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Derived-1965035432</span>
+Func2 f2 <span class="token operator">=</span> <span class="token punctuation">(</span>Func2<span class="token punctuation">)</span>func_addr<span class="token punctuation">;</span>
+<span class="token function">f2</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token number">777</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Derived777, since addr is from d</span>
+<span class="token function">f2</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>d<span class="token punctuation">,</span> <span class="token number">888</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Derived888</span>
+<span class="token comment">// (gdb) p d</span>
+<span class="token comment">// $1 = (Derived) {</span>
+<span class="token comment">//   &lt;Base&gt; = {</span>
+<span class="token comment">//     _vptr.Base = 0x555555557d60 &lt;vtable for Derived+16&gt;, </span>
+<span class="token comment">//     a = 99, </span>
+<span class="token comment">//     b = 6.9533558074397518e-310</span>
+<span class="token comment">//   }, </span>
+<span class="token comment">//   members of Derived: </span>
+<span class="token comment">//   c = 65 'A'</span>
+<span class="token comment">// }</span>
+<span class="token comment">// (gdb) info vtbl d</span>
+<span class="token comment">// vtable for 'Derived' @ 0x555555557d60 (subobject @ 0x7fffffffe0a0):</span>
+<span class="token comment">// [0]: 0x5555555552d6 &lt;Derived::vfunc()&gt;</span>
+<span class="token comment">// [1]: 0x55555555530e &lt;Derived::vfunc(int)&gt;</span>
+
+<span class="token comment">//typeinfo</span>
+Derived d<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>Func<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Func <span class="token operator">*</span>f <span class="token operator">=</span> <span class="token punctuation">(</span>Func <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>size_t <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+f<span class="token operator">--</span><span class="token punctuation">;</span>
+type_info <span class="token operator">*</span>td <span class="token operator">=</span> <span class="token punctuation">(</span>type_info <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">*</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> td<span class="token operator">-&gt;</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 7Derived</span>
+  
+<span class="token comment">// add virtual destructor</span>
+<span class="token keyword">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+ <span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>
+  <span class="token keyword">double</span> b<span class="token punctuation">;</span>
+  <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">vfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;B&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">vfunc</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Base&quot;</span> <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// Vtable for Base</span>
+<span class="token comment">// Base::_ZTV4Base: 6 entries</span>
+<span class="token comment">// 0     (int (*)(...))0</span>
+<span class="token comment">// 8     (int (*)(...))(&amp; _ZTI4Base)</span>
+<span class="token comment">// 16    (int (*)(...))Base::vfunc</span>
+<span class="token comment">// 24    (int (*)(...))Base::vfunc</span>
+<span class="token comment">// 32    (int (*)(...))Base::~Base</span>
+<span class="token comment">// 40    (int (*)(...))Base::~Base</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br></div></div><h2 id="多继承"><a href="#多继承" class="header-anchor">#</a> 多继承</h2> <ol><li>非菱形
+<ol><li>子类的虚函数放在生命的第一个基类对的虚函数表中</li> <li>成员变量按父类被声明顺序排序，接着是子类成员变量</li></ol></li> <li>菱形
+<ol><li>假设有B,B1(B),B2(B),D(B1,B2)那么B的成员会被D继承两次，产生歧义</li> <li>使用虚继承
+<ol><li>虚继承的子类，如果本身定义了新的虚函数，则编译器为其生成一个虚函数指针（vptr）以及一张虚函数表，该vptr位于对象内存最前面；非虚继承直接扩展父类虚函数表</li> <li>虚继承的子类也单独保留了父类的vprt与虚函数表，这部分内容接与子类内容以一个四字节的0来分界</li> <li>虚继承的子类对象中，含有四字节的虚表指针偏移值</li></ol></li></ol></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/29/2020, 4:59:01 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      &lt;
+      <a href="/blog/pages/001cpp/010inline.html" class="prev">
+        内联函数
+      </a></span> <span class="next"><a href="/blog/pages/001cpp/" class="router-link-active">
+        C++
+      </a>
+      &gt;
+    </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.5f3e7cf8.js" defer></script><script src="/blog/assets/js/2.8592cb03.js" defer></script><script src="/blog/assets/js/16.d7fd8582.js" defer></script>
+  </body>
+</html>

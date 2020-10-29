@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>shell脚本 | Think More</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/blog/icon.png">
+    <meta name="description" content="Think More, Code Less">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.740403a2.css" as="style"><link rel="preload" href="/blog/assets/js/app.5f3e7cf8.js" as="script"><link rel="preload" href="/blog/assets/js/2.8592cb03.js" as="script"><link rel="preload" href="/blog/assets/js/20.62a1fef1.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.2ac9a85f.js"><link rel="prefetch" href="/blog/assets/js/11.110cebd9.js"><link rel="prefetch" href="/blog/assets/js/12.7fadadd0.js"><link rel="prefetch" href="/blog/assets/js/13.153d651b.js"><link rel="prefetch" href="/blog/assets/js/14.9556b613.js"><link rel="prefetch" href="/blog/assets/js/15.1c968139.js"><link rel="prefetch" href="/blog/assets/js/16.d7fd8582.js"><link rel="prefetch" href="/blog/assets/js/17.ee8c3f79.js"><link rel="prefetch" href="/blog/assets/js/18.7f65bcc5.js"><link rel="prefetch" href="/blog/assets/js/19.f44a4c4a.js"><link rel="prefetch" href="/blog/assets/js/21.c1d513b7.js"><link rel="prefetch" href="/blog/assets/js/22.b2d838a0.js"><link rel="prefetch" href="/blog/assets/js/23.a61337c9.js"><link rel="prefetch" href="/blog/assets/js/24.17abc0e3.js"><link rel="prefetch" href="/blog/assets/js/25.e95567d3.js"><link rel="prefetch" href="/blog/assets/js/26.0a5059f0.js"><link rel="prefetch" href="/blog/assets/js/27.fbad6ca9.js"><link rel="prefetch" href="/blog/assets/js/3.b7e86699.js"><link rel="prefetch" href="/blog/assets/js/4.8e3657e3.js"><link rel="prefetch" href="/blog/assets/js/5.d1266ca5.js"><link rel="prefetch" href="/blog/assets/js/6.15a4430d.js"><link rel="prefetch" href="/blog/assets/js/7.2b290904.js"><link rel="prefetch" href="/blog/assets/js/8.40cc5e80.js"><link rel="prefetch" href="/blog/assets/js/9.547891b4.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.740403a2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Think More</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow down"></span></button> <button type="button" aria-label="Blog" class="mobile-dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/cpp/" class="nav-link">
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/network/" class="nav-link">
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/os/" class="nav-link">
+  OS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/design/" class="nav-link">
+  Design
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/collection/" class="nav-link">
+  collection
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/RickyWei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.linkedin.com/in/ruiji-wei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/blog/pages/003linux/.html" class="nav-link">
+  WeChat
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow down"></span></button> <button type="button" aria-label="Blog" class="mobile-dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/cpp/" class="nav-link">
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/network/" class="nav-link">
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/os/" class="nav-link">
+  OS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/design/" class="nav-link">
+  Design
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/collection/" class="nav-link">
+  collection
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/RickyWei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.linkedin.com/in/ruiji-wei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/blog/pages/003linux/.html" class="nav-link">
+  WeChat
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>003linux</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/003linux/001vim.html" class="sidebar-link">Vim</a></li><li><a href="/blog/pages/003linux/002git.html" class="sidebar-link">git</a></li><li><a href="/blog/pages/003linux/003shell.html" aria-current="page" class="active sidebar-link">shell脚本</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#解释器" class="sidebar-link">解释器</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#命令行参数" class="sidebar-link">命令行参数</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#变量" class="sidebar-link">变量</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#字符串" class="sidebar-link">字符串</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#数组" class="sidebar-link">数组</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#运算符" class="sidebar-link">运算符</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#流程控制" class="sidebar-link">流程控制</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#函数" class="sidebar-link">函数</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#文件包含" class="sidebar-link">文件包含</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#命令" class="sidebar-link">命令</a></li><li class="sidebar-sub-header"><a href="/blog/pages/003linux/003shell.html#疑难杂症" class="sidebar-link">疑难杂症</a></li></ul></li><li><a href="/blog/pages/003linux/" aria-current="page" class="sidebar-link">/pages/003linux/</a></li></ul></section></li></ul> </aside> <a href="https://github.com/RickyWei" target="_blank" rel="noopener" class="github-link active"><p class="nes-balloon from-right">Follow me<br>on GitHub</p> <i class="nes-octocat"></i></a> <main class="page"> <div class="theme-default-content content__default" style="font-family:consolas;"><h1 id="shell脚本"><a href="#shell脚本" class="header-anchor">#</a> shell脚本</h1> <h2 id="解释器"><a href="#解释器" class="header-anchor">#</a> 解释器</h2> <ol><li>文件开头指定解释器</li></ol> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token shebang important">#!/bin/bash</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="命令行参数"><a href="#命令行参数" class="header-anchor">#</a> 命令行参数</h2> <p>|:-|:-|
+|<mjx-container jax="CHTML" class="MathJax"><mjx-math class=" MJX-TEX"><mjx-merror><mjx-mtext class="mjx-n"><mjx-c c="#"></mjx-c><mjx-c c="|"></mjx-c><mjx-utext variant="normal" style="font-family:serif;">参</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">数</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">个</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">数</mjx-utext><mjx-c c="|"></mjx-c><mjx-c c=" "></mjx-c><mjx-c c="|"></mjx-c></mjx-mtext></mjx-merror></mjx-math></mjx-container>*|以一个单字符串显示所有向脚本传递的参数|
+|$<mjx-container jax="CHTML" class="MathJax"><mjx-math class=" MJX-TEX"><mjx-mo class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-utext variant="normal" style="font-family:serif;">当</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">前</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">脚</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">本</mjx-utext></mjx-mo><mjx-mi space="4" class="mjx-i"><mjx-c c="P"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="D"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo></mjx-math></mjx-container>!|后台运行的最后一个进程的PID|
+|<mjx-container jax="CHTML" class="MathJax"><mjx-math class=" MJX-TEX"><mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c c="@"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo><mjx-mo space="4" class="mjx-n"><mjx-utext variant="normal" style="font-family:serif;">与</mjx-utext></mjx-mo></mjx-math></mjx-container>*相似，但使用时加引号，每个参数分离|
+|<mjx-container jax="CHTML" class="MathJax"><mjx-math class=" MJX-TEX"><mjx-mo class="mjx-n"><mjx-c c="2212"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo><mjx-mo space="4" class="mjx-n"><mjx-utext variant="normal" style="font-family:serif;">显</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">示</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">该</mjx-utext></mjx-mo><mjx-mi space="4" class="mjx-i"><mjx-c c="s"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="h"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="e"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="l"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="l"></mjx-c></mjx-mi><mjx-mo space="4" class="mjx-n"><mjx-utext variant="normal" style="font-family:serif;">（</mjx-utext></mjx-mo><mjx-mi space="4" class="mjx-i"><mjx-c c="t"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="e"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="r"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="m"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="i"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="n"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="a"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c c="l"></mjx-c></mjx-mi><mjx-mo space="4" class="mjx-n"><mjx-utext variant="normal" style="font-family:serif;">）</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">的</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">当</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">前</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">选</mjx-utext><mjx-utext variant="normal" style="font-family:serif;">项</mjx-utext></mjx-mo><mjx-mo space="4" class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c c="|"></mjx-c></mjx-mo></mjx-math></mjx-container>?|显示该shell最后一个命令的退出状态|</p> <h2 id="变量"><a href="#变量" class="header-anchor">#</a> 变量</h2> <ol><li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头</li> <li>中间不能有空格，可以使用下划线</li> <li>不能使用标点符号</li> <li>不能使用bash里的关键字</li></ol> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">123</span> <span class="token comment"># no space</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$var</span> <span class="token comment"># $ to use variable</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${var}</span> <span class="token comment"># {} is optional</span>
+
+<span class="token builtin class-name">readonly</span> var2 <span class="token comment"># a raedonly var</span>
+
+<span class="token builtin class-name">unset</span> var <span class="token comment"># delete a var(can not delete readonly var)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="字符串"><a href="#字符串" class="header-anchor">#</a> 字符串</h2> <ol><li>无引号</li> <li>单引号
+<ol><li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的</li> <li>单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用</li></ol></li> <li>双引号
+<ol><li>双引号里可以有变量</li> <li>双引号里可以出现转义字符</li></ol></li></ol> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token assign-left variable">wd</span><span class="token operator">=</span>world
+<span class="token builtin class-name">echo</span> <span class="token string">'hello ,'</span><span class="token variable">$wd</span><span class="token string">''</span> <span class="token comment"># hello world</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>wd}</span> <span class="token comment"># length 5</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${wd<span class="token operator">:</span>0<span class="token operator">:</span>3}</span> <span class="token comment">#substr wor</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="数组"><a href="#数组" class="header-anchor">#</a> 数组</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token assign-left variable">array</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${array<span class="token punctuation">[</span>0<span class="token punctuation">]</span>}</span> <span class="token comment"># 1</span>
+array<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">100</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${array<span class="token punctuation">[</span>100<span class="token punctuation">]</span>}</span> <span class="token comment"># 100</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${array<span class="token punctuation">[</span>99<span class="token punctuation">]</span>}</span> <span class="token comment"># empty line</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${array<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> <span class="token comment"># 1 2 100</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>array<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> <span class="token comment"># length of whole array</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>array<span class="token punctuation">[</span>0<span class="token punctuation">]</span>}</span> <span class="token comment"># length of an element</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="运算符"><a href="#运算符" class="header-anchor">#</a> 运算符</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> + <span class="token string">&quot;<span class="token variable">$num</span>&quot;</span><span class="token variable">`</span></span> <span class="token comment"># for any shell</span>
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$a<span class="token operator">+</span>$num<span class="token variable">))</span></span> <span class="token comment"># POSIX, for most</span>
+<span class="token builtin class-name">let</span> <span class="token assign-left variable">a</span><span class="token operator">=</span>a+num <span class="token comment"># need ksh/bash/zsh</span>
+
+<span class="token comment"># Arithmetic operator</span>
+<span class="token comment"># + - * / % = == !=</span>
+
+<span class="token comment"># Relational operator</span>
+<span class="token comment"># only for number but for string only with num</span>
+<span class="token comment"># -eq -ne -gt -lt -ge -le</span>
+
+<span class="token comment"># Logic operator</span>
+<span class="token comment"># ! -o -a || &amp;&amp;</span>
+
+<span class="token comment"># String operator</span>
+<span class="token comment"># = != -z(if len == 0) -n(if len != 0) $(if not empty)</span>
+
+<span class="token comment"># File test operator</span>
+<span class="token comment"># -f $file (if normal file)</span>
+<span class="token comment"># -d $file (if dir)</span>
+<span class="token comment"># ...</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="流程控制"><a href="#流程控制" class="header-anchor">#</a> 流程控制</h2> <ol><li>条件表达式写在方括号内，且有空格<code>[ $a == $b ]</code></li></ol> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment">#if-else</span>
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token assign-left variable">b</span><span class="token operator">=</span><span class="token number">20</span>
+<span class="token keyword">if</span> <span class="token builtin class-name">test</span> $<span class="token punctuation">[</span>a<span class="token punctuation">]</span> -eq $<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token comment">#can combine test</span>
+<span class="token keyword">then</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">&quot;a == b&quot;</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$a</span> -gt <span class="token variable">$b</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">&quot;a &gt; b&quot;</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$a</span> -lt <span class="token variable">$b</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">&quot;a &lt; b&quot;</span>
+<span class="token keyword">else</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">&quot;没有符合的条件&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment">#for</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">str</span> <span class="token keyword">in</span> <span class="token string">'This is a string'</span> <span class="token comment"># ;do is ok</span>
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$str</span>
+<span class="token keyword">done</span>
+
+<span class="token comment">#while</span>
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>$a <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+    <span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token variable">))</span></span>
+<span class="token keyword">done</span>
+
+<span class="token comment">#until</span>
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">until</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable">$a</span> -lt <span class="token number">10</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+   <span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+   <span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> $a + <span class="token number">1</span><span class="token variable">`</span></span>
+<span class="token keyword">done</span>
+
+<span class="token comment">#swatch-case</span>
+<span class="token builtin class-name">read</span> aNum
+<span class="token keyword">case</span> <span class="token variable">$aNum</span> <span class="token keyword">in</span>
+    <span class="token number">1</span><span class="token operator">|</span><span class="token number">2</span><span class="token operator">|</span><span class="token number">3</span><span class="token operator">|</span><span class="token number">4</span><span class="token operator">|</span><span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$aNum</span>&quot;</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;number not in 5&quot;</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br></div></div><h2 id="函数"><a href="#函数" class="header-anchor">#</a> 函数</h2> <ol><li><code>function</code>可有可无</li> <li>返回值可以显示添加(0-255)，默认为函数中最后一条命令的执行结果</li></ol> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token keyword">function</span> <span class="token function-name function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;hello&quot;</span>
+    <span class="token builtin class-name">return</span> <span class="token string">&quot;world&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="文件包含"><a href="#文件包含" class="header-anchor">#</a> 文件包含</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># test1.sh</span>
+<span class="token assign-left variable">hello</span><span class="token operator">=</span><span class="token string">&quot;world&quot;</span>
+
+<span class="token comment">#test2.sh</span>
+<span class="token builtin class-name">.</span> ./test1.sh <span class="token comment"># use .</span>
+<span class="token builtin class-name">source</span> ./test1.sh <span class="token comment"># use source</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">$hello</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="命令"><a href="#命令" class="header-anchor">#</a> 命令</h2> <ol><li>shell脚本中可使用命令<code>ls grep</code>等</li> <li>需要用``包裹命令</li></ol> <h2 id="疑难杂症"><a href="#疑难杂症" class="header-anchor">#</a> 疑难杂症</h2> <ol><li><code>008: value too great for base (error token is &quot;008&quot;)</code> 008 解释为8禁止，使用<code>$((10#$var))</code>转化为10进制</li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/29/2020, 4:59:01 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      &lt;
+      <a href="/blog/pages/003linux/002git.html" class="prev">
+        git
+      </a></span> <span class="next"><a href="/blog/pages/003linux/" class="router-link-active">
+        /pages/003linux/
+      </a>
+      &gt;
+    </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.5f3e7cf8.js" defer></script><script src="/blog/assets/js/2.8592cb03.js" defer></script><script src="/blog/assets/js/20.62a1fef1.js" defer></script>
+  </body>
+</html>
