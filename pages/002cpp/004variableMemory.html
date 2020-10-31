@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>各类变量存储区 | Think More</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/blog/icon.png">
+    <meta name="description" content="Think More, Code Less">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.740403a2.css" as="style"><link rel="preload" href="/blog/assets/js/app.6457f2c1.js" as="script"><link rel="preload" href="/blog/assets/js/2.4e5c42c7.js" as="script"><link rel="preload" href="/blog/assets/js/7.1fb6b7eb.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.8702953b.js"><link rel="prefetch" href="/blog/assets/js/11.25424776.js"><link rel="prefetch" href="/blog/assets/js/12.564e9b6c.js"><link rel="prefetch" href="/blog/assets/js/13.dadab940.js"><link rel="prefetch" href="/blog/assets/js/14.1ef8fca0.js"><link rel="prefetch" href="/blog/assets/js/15.0853b5f2.js"><link rel="prefetch" href="/blog/assets/js/16.2cb62c04.js"><link rel="prefetch" href="/blog/assets/js/17.d65b436d.js"><link rel="prefetch" href="/blog/assets/js/18.b877f280.js"><link rel="prefetch" href="/blog/assets/js/19.05373095.js"><link rel="prefetch" href="/blog/assets/js/20.d0adb73c.js"><link rel="prefetch" href="/blog/assets/js/21.740a783c.js"><link rel="prefetch" href="/blog/assets/js/22.e4994c10.js"><link rel="prefetch" href="/blog/assets/js/23.8cab6487.js"><link rel="prefetch" href="/blog/assets/js/24.b727f69f.js"><link rel="prefetch" href="/blog/assets/js/25.ee4af615.js"><link rel="prefetch" href="/blog/assets/js/26.452a609a.js"><link rel="prefetch" href="/blog/assets/js/27.be8dca9c.js"><link rel="prefetch" href="/blog/assets/js/28.69549c21.js"><link rel="prefetch" href="/blog/assets/js/3.29adc6c7.js"><link rel="prefetch" href="/blog/assets/js/4.bc8adb04.js"><link rel="prefetch" href="/blog/assets/js/5.0a630405.js"><link rel="prefetch" href="/blog/assets/js/6.7832141d.js"><link rel="prefetch" href="/blog/assets/js/8.f810f411.js"><link rel="prefetch" href="/blog/assets/js/9.96ea5a16.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.740403a2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Think More</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow down"></span></button> <button type="button" aria-label="Blog" class="mobile-dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/001algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/002cpp/" class="nav-link router-link-active">
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/003network/" class="nav-link">
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/004linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/005database/" class="nav-link">
+  Database
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/006design/" class="nav-link">
+  Design
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/007collection/" class="nav-link">
+  collection
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/RickyWei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.linkedin.com/in/ruiji-wei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/blog/pages/002cpp/.html" class="nav-link">
+  WeChat
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow down"></span></button> <button type="button" aria-label="Blog" class="mobile-dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/001algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/002cpp/" class="nav-link router-link-active">
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/003network/" class="nav-link">
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/004linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/005database/" class="nav-link">
+  Database
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/006design/" class="nav-link">
+  Design
+</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/007collection/" class="nav-link">
+  collection
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/RickyWei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.linkedin.com/in/ruiji-wei" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/blog/pages/002cpp/.html" class="nav-link">
+  WeChat
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>002cpp</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/002cpp/001compile.html" class="sidebar-link">C++编译流程</a></li><li><a href="/blog/pages/002cpp/002asm.html" class="sidebar-link">汇编</a></li><li><a href="/blog/pages/002cpp/003macro.html" class="sidebar-link">宏</a></li><li><a href="/blog/pages/002cpp/004variableMemory.html" aria-current="page" class="active sidebar-link">各类变量存储区</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/pages/002cpp/004variableMemory.html#c-语言内存区块" class="sidebar-link">C 语言内存区块</a></li></ul></li><li><a href="/blog/pages/002cpp/005static.html" class="sidebar-link">Static用法</a></li><li><a href="/blog/pages/002cpp/006extern.html" class="sidebar-link">extern用法</a></li><li><a href="/blog/pages/002cpp/007pointerreference.html" class="sidebar-link">指针和引用</a></li><li><a href="/blog/pages/002cpp/008newmalloc.html" class="sidebar-link">new与malloc</a></li><li><a href="/blog/pages/002cpp/009funcreload.html" class="sidebar-link">函数重载</a></li><li><a href="/blog/pages/002cpp/010inline.html" class="sidebar-link">内联函数</a></li><li><a href="/blog/pages/002cpp/011objectmodel.html" class="sidebar-link">C++对象模型</a></li><li><a href="/blog/pages/002cpp/" aria-current="page" class="sidebar-link">C++</a></li></ul></section></li></ul> </aside> <a href="https://github.com/RickyWei" target="_blank" rel="noopener" class="github-link active"><p class="nes-balloon from-right">Follow me<br>on GitHub</p> <i class="nes-octocat"></i></a> <main class="page"> <div class="theme-default-content content__default" style="font-family:consolas;"><h1 id="各类变量存储区"><a href="#各类变量存储区" class="header-anchor">#</a> 各类变量存储区</h1> <h2 id="c-语言内存区块"><a href="#c-语言内存区块" class="header-anchor">#</a> C 语言内存区块</h2> <p><img src="/blog/assets/img/cmemorylayout.4bfbd771.png" alt="C/C++ memory layout"></p> <ol><li>栈区
+<ol><li>局部变量，参数，返回值等</li></ol></li> <li>堆区
+<ol><li>new/malloc 的对象</li> <li>默认作为自由存储区</li></ol></li> <li>数据区
+<ol><li>全局或静态变量</li></ol></li> <li>代码区
+<ol><li>只读存储区（字符常量等）</li> <li>文本区</li></ol></li></ol> <div class="language-cpp line-numbers-mode"><pre class="language-cpp"><code><span class="token comment">// main.cpp</span>
+
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">//全局初始化区</span>
+<span class="token keyword">char</span> <span class="token operator">*</span>p1<span class="token punctuation">;</span>   <span class="token comment">//全局未初始化区</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> b<span class="token punctuation">;</span>                    <span class="token comment">//栈</span>
+  <span class="token keyword">char</span> s<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;abc&quot;</span><span class="token punctuation">;</span>         <span class="token comment">//栈</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>p2<span class="token punctuation">;</span>                 <span class="token comment">//栈</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>p3 <span class="token operator">=</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">;</span>      <span class="token comment">// 123456{post.content}在常量区，p3在栈上</span>
+  <span class="token keyword">static</span> <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>         <span class="token comment">//全局（静态）初始化区</span>
+  p1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//分配得来得10字节的区域在堆区</span>
+  p2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//分配得来得20字节的区域在堆区</span>
+  <span class="token function">strcpy</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 123456{post.content}放在常量区，编译器可能会将它与p3所指向的&quot;123456&quot;优化成一块</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/31/2020, 3:38:04 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      &lt;
+      <a href="/blog/pages/002cpp/003macro.html" class="prev">
+        宏
+      </a></span> <span class="next"><a href="/blog/pages/002cpp/005static.html">
+        Static用法
+      </a>
+      &gt;
+    </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.6457f2c1.js" defer></script><script src="/blog/assets/js/2.4e5c42c7.js" defer></script><script src="/blog/assets/js/7.1fb6b7eb.js" defer></script>
+  </body>
+</html>
