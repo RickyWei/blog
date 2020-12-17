@@ -8,7 +8,7 @@
     <link rel="icon" href="/blog/icon.png">
     <meta name="description" content="Think More, Code Less">
     
-    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.6a44a8eb.js" as="script"><link rel="preload" href="/blog/assets/js/2.3a72a476.js" as="script"><link rel="preload" href="/blog/assets/js/5.017dfa10.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.06c97db3.js"><link rel="prefetch" href="/blog/assets/js/11.2d0b62d3.js"><link rel="prefetch" href="/blog/assets/js/12.6ee8361f.js"><link rel="prefetch" href="/blog/assets/js/13.c49ddaa9.js"><link rel="prefetch" href="/blog/assets/js/14.ddce54d6.js"><link rel="prefetch" href="/blog/assets/js/15.e025bd09.js"><link rel="prefetch" href="/blog/assets/js/3.1b810519.js"><link rel="prefetch" href="/blog/assets/js/4.6fedf550.js"><link rel="prefetch" href="/blog/assets/js/6.dfbb59b3.js"><link rel="prefetch" href="/blog/assets/js/7.0d245ff5.js"><link rel="prefetch" href="/blog/assets/js/8.2b476c44.js"><link rel="prefetch" href="/blog/assets/js/9.492265f0.js">
+    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.39103e95.js" as="script"><link rel="preload" href="/blog/assets/js/2.3a72a476.js" as="script"><link rel="preload" href="/blog/assets/js/5.1c4c4a26.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.06c97db3.js"><link rel="prefetch" href="/blog/assets/js/11.2d0b62d3.js"><link rel="prefetch" href="/blog/assets/js/12.6ee8361f.js"><link rel="prefetch" href="/blog/assets/js/13.c49ddaa9.js"><link rel="prefetch" href="/blog/assets/js/14.ddce54d6.js"><link rel="prefetch" href="/blog/assets/js/15.e025bd09.js"><link rel="prefetch" href="/blog/assets/js/3.32479616.js"><link rel="prefetch" href="/blog/assets/js/4.56efd25b.js"><link rel="prefetch" href="/blog/assets/js/6.dfbb59b3.js"><link rel="prefetch" href="/blog/assets/js/7.7c901ffb.js"><link rel="prefetch" href="/blog/assets/js/8.65917924.js"><link rel="prefetch" href="/blog/assets/js/9.492265f0.js">
     <link rel="stylesheet" href="/blog/assets/css/0.styles.928a57d1.css">
   </head>
   <body>
@@ -37,7 +37,7 @@
 <ol><li>词法语法分析，生成汇编</li></ol></li> <li>汇编
 <ol><li>生成机器指令</li></ol></li> <li>链接
 <ol><li>解决符号（函数，变量）的相互引用，符号的引用本质是对其在内存中具体地址的引用</li> <li>符号重定位要解决的是当前编译单元如何访问「外部」符号这个问题</li> <li>装载时重定位
-<ol><li>因为编译是以源文件为单位进行的，编译器此时并没有一个全局的视野，因此对一个编译单元内的符号它是无力确定其最终地址的，而对于可执行文件来说，在现代操作系统上，程序加载运行的地址是固定或可以预期的</li> <li>编译器当前并不知道 g_share 这个变量最后会被分配到哪个地址上，因此在这儿只是随便用一个假的来代替，等着到接下来链接时，再把该处地址进行修正。那么，链接器怎么知道目标文件中哪些地方需要修正呢？很简单，编译器编译文件时时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“重定位表”(relocatioin table)</li> <li>有了如上信息，链接器在把目标文件合并成一个可执行文件并分配好各段的加载地址后，就可以重新计算那些需要重定位的符号的具体地址了</li></ol></li> <li>地址无关代码
+<ol><li>因为编译是以源文件为单位进行的，编译器此时并没有一个全局的视野，因此对一个编译单元内的符号它是无法确定其最终地址的，而对于可执行文件来说，在现代操作系统上，程序加载运行的地址是固定或可以预期的</li> <li>编译器当前并不知道 g_share 这个变量最后会被分配到哪个地址上，因此在这儿只是随便用一个假的来代替，等着到接下来链接时，再把该处地址进行修正。那么，链接器怎么知道目标文件中哪些地方需要修正呢？很简单，编译器编译文件时时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“重定位表”(relocatioin table)</li> <li>有了如上信息，链接器在把目标文件合并成一个可执行文件并分配好各段的加载地址后，就可以重新计算那些需要重定位的符号的具体地址了</li></ol></li> <li>地址无关代码
 <ol><li>位置无关代码在数据段开始为每一个全局符号保留了一个条目（GOT global offset table），每一个条目中保存了全局符号的绝对地址（这个绝对地址，在动态链接库装载的时候被填写），每次对动态链接中全局符号的引用，首先找到GOT中的条目，然后获得全局符号的地址，这样就实现了位置无关代码</li></ol></li></ol></li></ol> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>g++ -E hello.cc <span class="token operator">&gt;</span> hello.i
 g++ -S b.i
 g++ -c b.s
@@ -94,12 +94,12 @@ __cplusplus
   <span class="token keyword">int</span> b<span class="token punctuation">;</span>                    <span class="token comment">//栈</span>
   <span class="token keyword">char</span> s<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;abc&quot;</span><span class="token punctuation">;</span>         <span class="token comment">//栈</span>
   <span class="token keyword">char</span> <span class="token operator">*</span>p2<span class="token punctuation">;</span>                 <span class="token comment">//栈</span>
-  <span class="token keyword">char</span> <span class="token operator">*</span>p3 <span class="token operator">=</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">;</span>      <span class="token comment">// 123456{post.content}在常量区，p3在栈上</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>p3 <span class="token operator">=</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">;</span>      <span class="token comment">// 123456在常量区，p3在栈上</span>
   <span class="token keyword">static</span> <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>         <span class="token comment">//全局（静态）初始化区</span>
   p1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//分配得来得10字节的区域在堆区</span>
   p2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//分配得来得20字节的区域在堆区</span>
   <span class="token function">strcpy</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment">// 123456{post.content}放在常量区，编译器可能会将它与p3所指向的&quot;123456&quot;优化成一块</span>
+  <span class="token comment">// 123456放在常量区，编译器可能会将它与p3所指向的&quot;123456&quot;优化成一块</span>
 <span class="token punctuation">}</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="static用法"><a href="#static用法" class="header-anchor">#</a> Static用法</h2> <ol><li>静态局部变量
 <ol><li>静态局部变量在程序执行到该对象的声明处时被首次初始化，即以后的函数调用不再进行初始化(局部变量每次函数调用都会被初始化)</li> <li>静态局部变量一般在声明处初始化，如果没有显式初始化，会被程序自动初始化为0(局部变量不会被初始化)</li> <li>它始终驻留在全局数据区，直到程序运行结束。但其作用域为局部作用域，也就是不能在函数体外面使用它(局部变量在栈区，在函数结束后立即释放内存);</li></ol></li> <li>静态全局变量
@@ -267,7 +267,7 @@ va_list args<span class="token punctuation">;</span> <span class="token comment"
 <ol><li><code>default constructor</code></li> <li><code>copy constructor</code></li> <li><code>copy assignment operator</code></li> <li><code>move constructor</code></li> <li><code>move assigment operator</code></li></ol></li> <li>若无自己声明<code>destructor</code>，编译器默认自己生成</li> <li>同时编译器会生成
 <ol><li><code>Class* operator&amp;()</code></li> <li><code>const Class* operator&amp;()</code></li></ol></li></ol></li> <li>构造函数
 <ol><li>默认构造函数可初始化
-<ol><li>若有类内初始化值，则按此舒适化成员</li> <li>调用成员对象的默认构造函数</li></ol></li> <li>构造函数初始化顺序
+<ol><li>若有类内初始化值，则按此初始化成员</li> <li>调用成员对象的默认构造函数</li></ol></li> <li>构造函数初始化顺序
 <ol><li>虚基类</li> <li>非虚基类</li> <li>对象成员</li> <li>类自身构造</li></ol></li> <li>初始化列表中，变量被初始化的顺序决定于该变量在类中声明的位置</li> <li><code>const</code>成员必须在初始化列表中</li> <li><code>static</code>成员必须在类外初始化</li></ol></li> <li>虚析构函数
 <ol><li>析构函数应声明为虚函数，这样可以动态绑定真正的虚函数</li> <li>构造函数不能为虚函数
 <ol><li>创建对象时必须知道对象实际类型，虚函数行为是运行期间确定类型</li> <li>虚函数依赖于虚函数表，构造对象期间虚函数表还未完全初始化</li></ol></li></ol></li></ol> <h2 id="constexpr-常量表达式"><a href="#constexpr-常量表达式" class="header-anchor">#</a> constexpr 常量表达式</h2> <ol><li>用途
@@ -282,7 +282,7 @@ va_list args<span class="token punctuation">;</span> <span class="token comment"
 <ol><li>所有权</li> <li>引用计数</li></ol></li> <li>auto_ptr
 <ol><li>auto_ptr使用所有权模型</li> <li>deprecated
 <ol><li>存在潜在风险，因为失去所有权的auto_ptr指向空，运行时出错</li></ol></li></ol></li> <li>unique_ptr
-<ol><li><code>unique_ptr</code>用来代替auto_ptr，失去所有权同样指向空，但是后续如果在使用这个空指针，这个错误可悲检查在编译期</li> <li><code>unique_ptr</code>支持移动语义</li></ol></li> <li>share_ptr weak_ptr
+<ol><li><code>unique_ptr</code>用来代替auto_ptr，失去所有权同样指向空，但是后续如果在使用这个空指针，这个错误可被发现在编译期</li> <li><code>unique_ptr</code>支持移动语义</li></ol></li> <li>share_ptr weak_ptr
 <ol><li><code>shared_ptr</code>引用计数模型</li> <li><code>weak_ptr</code>是一种弱引用，不增加或减少引用计数</li> <li>问题
 <ol><li><code>shared_ptr</code>可能造成循环引用，需要使用<code>weak_ptr</code>解决</li> <li>不应用一个<code>raw pointer</code>初始化多个<code>shared_ptr</code>，会造成double free问题，因为此时有多个引用计数且都为1</li> <li><code>this</code>指针也是<code>raw pointer</code>，在类中若想将<code>this</code>传递应该继承<code>enable_shared_from_this</code></li> <li>在调用<code>shared_from_this()</code>前应确保对象被<code>shared_ptr</code>持有，而不是一个<code>raw pointer</code>或<code>raw objector</code>，否则相当于调用<code>this</code>初始化多个<code>shared_ptr</code></li></ol></li></ol></li></ol> <div class="language-cpp line-numbers-mode"><pre class="language-cpp"><code><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
 <span class="token keyword">class</span> <span class="token class-name">SmartPointer</span> <span class="token punctuation">{</span>
@@ -364,7 +364,7 @@ T<span class="token operator">&amp;&amp;</span> <span class="token function">for
 <ol><li>hash_table</li></ol></li> <li>unordered_set
 <ol><li>hash_table</li></ol></li> <li>multiset
 <ol><li>红黑树，插入操作采用的是底层机制RB-tree的insert_equal()而非insert_unique()</li></ol></li></ol> <h2 id="迭代器种类"><a href="#迭代器种类" class="header-anchor">#</a> 迭代器种类</h2> <ol><li>Input iterator(输入迭代器) 可读 只支持自增运算</li> <li>Output iterator(输出迭代器) 可写 只支持自增运算</li> <li>Forward iterator(前向迭代器) 读写 只支持自增运算</li> <li>Bidirectional iterator(双向迭代器) 读写 支持自增和自减运算</li> <li>Random access iterator(随机访问迭代器) 读写 支持完整的迭代器算术运算</li></ol> <h2 id="vector迭代器失效"><a href="#vector迭代器失效" class="header-anchor">#</a> vector迭代器失效</h2> <ol><li>删除时，后面的数据要移动，后面的迭代器都失效，但erase()函数可返回下一个元素的新的迭代器</li> <li>插入时，可能触发扩容</li></ol> <h2 id="gdb调试"><a href="#gdb调试" class="header-anchor">#</a> gdb调试</h2> <ol><li>r(run) b(break) l(list) n(next) p(print)</li> <li>info threads查看 thread 3 切换</li> <li>x/nfu addr 以f格式打印从addr开始的n个长度单元为u的内存值
-<ol><li>n：输出单元的个数。</li> <li>f：是输出格式。比如x是以16进制形式输出，o是以8进制形式输出,等等。</li> <li>u：标明一个单元的长度。b是一个byte，h是两个byte（halfword），w是四个byte（word），g是八个byte（giant word）</li></ol></li> <li>分析core文件，gdb 程序名 core文件名</li> <li>调试一个正在运行的程序，gdb -p PID</li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/13/2020, 9:57:10 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+<ol><li>n：输出单元的个数。</li> <li>f：是输出格式。比如x是以16进制形式输出，o是以8进制形式输出,等等。</li> <li>u：标明一个单元的长度。b是一个byte，h是两个byte（halfword），w是四个byte（word），g是八个byte（giant word）</li></ol></li> <li>分析core文件，gdb 程序名 core文件名</li> <li>调试一个正在运行的程序，gdb -p PID</li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/17/2020, 7:48:37 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       &lt;
       <a href="/blog/pages/001interview/01algorithm.html" class="prev">
         Algorithm
@@ -373,6 +373,6 @@ T<span class="token operator">&amp;&amp;</span> <span class="token function">for
       </a>
       &gt;
     </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
-    <script src="/blog/assets/js/app.6a44a8eb.js" defer></script><script src="/blog/assets/js/2.3a72a476.js" defer></script><script src="/blog/assets/js/5.017dfa10.js" defer></script>
+    <script src="/blog/assets/js/app.39103e95.js" defer></script><script src="/blog/assets/js/2.3a72a476.js" defer></script><script src="/blog/assets/js/5.1c4c4a26.js" defer></script>
   </body>
 </html>
