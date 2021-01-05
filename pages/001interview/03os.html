@@ -8,7 +8,7 @@
     <link rel="icon" href="/blog/icon.png">
     <meta name="description" content="Think More, Code Less">
     
-    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.f13bb8da.js" as="script"><link rel="preload" href="/blog/assets/js/2.618b117f.js" as="script"><link rel="preload" href="/blog/assets/js/4.caf63442.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.f3f77967.js"><link rel="prefetch" href="/blog/assets/js/11.7accc4f7.js"><link rel="prefetch" href="/blog/assets/js/12.80ddbeb0.js"><link rel="prefetch" href="/blog/assets/js/13.66192df5.js"><link rel="prefetch" href="/blog/assets/js/14.ee39e969.js"><link rel="prefetch" href="/blog/assets/js/15.9daaf3e1.js"><link rel="prefetch" href="/blog/assets/js/3.1338b2a4.js"><link rel="prefetch" href="/blog/assets/js/5.4fac38eb.js"><link rel="prefetch" href="/blog/assets/js/6.fa092f0c.js"><link rel="prefetch" href="/blog/assets/js/7.b1062575.js"><link rel="prefetch" href="/blog/assets/js/8.cc45068a.js"><link rel="prefetch" href="/blog/assets/js/9.82fd4bff.js">
+    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.346c933e.js" as="script"><link rel="preload" href="/blog/assets/js/2.9253eddc.js" as="script"><link rel="preload" href="/blog/assets/js/4.288bf4db.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4094bcdc.js"><link rel="prefetch" href="/blog/assets/js/11.7014511e.js"><link rel="prefetch" href="/blog/assets/js/12.d7e3588f.js"><link rel="prefetch" href="/blog/assets/js/13.a6ad773c.js"><link rel="prefetch" href="/blog/assets/js/14.19d74610.js"><link rel="prefetch" href="/blog/assets/js/15.2a2283d7.js"><link rel="prefetch" href="/blog/assets/js/3.05ea469a.js"><link rel="prefetch" href="/blog/assets/js/5.3e680f6a.js"><link rel="prefetch" href="/blog/assets/js/6.0e9f2a5d.js"><link rel="prefetch" href="/blog/assets/js/7.33775d2e.js"><link rel="prefetch" href="/blog/assets/js/8.fd8d8e18.js"><link rel="prefetch" href="/blog/assets/js/9.f8b7d5cd.js">
     <link rel="stylesheet" href="/blog/assets/css/0.styles.928a57d1.css">
   </head>
   <body>
@@ -107,7 +107,7 @@
   <span class="token comment">// See below for intrinsics setup to support this</span>
   <span class="token keyword">return</span> unsafe<span class="token punctuation">.</span><span class="token function">compareAndSwapInt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> stateOffset<span class="token punctuation">,</span> expect<span class="token punctuation">,</span> update<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol><li>CAS的含义是 我认为V的值应该为A，如果是，那么将V的值更新为B，否则不修改并告诉V的值实际为多少</li> <li>compareAndSetState 方法相当于compareAndSet 方法，是一个api。而我们来看它的实现，发现调用unsafe类的compareAndSwapInt</li> <li><a href="./img/../imgos/cas.png">simulate cas</a></li> <li>cas缺点
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol><li>CAS的含义是 我认为V的值应该为A，如果是，那么将V的值更新为B，否则不修改并告诉V的值实际为多少</li> <li>compareAndSetState 方法相当于compareAndSet 方法，是一个api。而我们来看它的实现，发现调用unsafe类的compareAndSwapInt</li> <li><img src="/blog/assets/img/cas.b13df7b8.png" alt="simulate cas"></li> <li>cas缺点
 <ol><li>循环开销大：如果比较的时候一直不等于预期值，则会一直循环等待，直到比较成功为止，该过程会给CPU带来较大开销</li> <li>只能保证一个共享变量的原子操作。对于多个共享变量无法保证原子性，因为每次比较的都是一个元素</li> <li>ABA问题
 <ol><li>比如数值i = 5，A线程本来想改成10，在更改之前，B线程先将i先由5变成了6，再更新成5，但是A线程并不知道i发生过改变，仍然将i改成10。尽管最后的结果没有问题，但是整个过程还是不对的</li> <li>通常使用时间戳版本解决</li></ol></li></ol></li></ol> <h2 id="spinlock与mutex"><a href="#spinlock与mutex" class="header-anchor">#</a> spinlock与mutex</h2> <ol><li>spinlock需要关中断
 <ol><li>所有spinlock都会关闭抢占</li> <li>不关中断spinlock可能死锁，比如任务A进行spinlock此时中断，进程B因为优先级高运行且需要获得锁，则死锁</li></ol></li> <li>mutex不能
@@ -119,7 +119,7 @@
 <ol><li>ctrl+c SIGINT 结束进程</li> <li>ctrl+z SIGTSTP 将一个正在前台执行的命令放到后台，并且处于暂停状态，不可执行</li></ol></li> <li>ssh断开后后台进程
 <ol><li>在ssh中启动的后台进程会挂</li> <li><code>nohup ./server &amp;</code> 在用户注销或者网络断开时终端会受到HUP信号而关闭所有子进程，nohub让终端忽略改消息</li></ol></li> <li>top
 <ol><li>top命令查看内存和cpu使用</li> <li>VIRT = SWAP + RES 是进程需要的虚拟内存大小</li> <li>RES = CODE + DATA 是进程实际的内存大小</li> <li>SHR = 是共享的内存大小 + 共享库的大小</li> <li>一个进程占用的物理内存大小 = RES - SHR</li></ol></li> <li>dig 查询dns；dig+trace</li> <li>ulimit -a 查看系统资源设置</li> <li>lsof -p pid 查看进程打开的文件描述符</li> <li>/proc/目录
-<ol><li>/proc/meminfo</li> <li>/proc/cpuinfo</li> <li>/proc/pid/fd</li></ol></li> <li>strace ./a.out 查看系统调用</li> <li>kill可发送信号<code>kill -s signal pid(number)</code></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/3/2021, 8:52:50 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+<ol><li>/proc/meminfo</li> <li>/proc/cpuinfo</li> <li>/proc/pid/fd</li></ol></li> <li>strace ./a.out 查看系统调用</li> <li>kill可发送信号<code>kill -s signal pid(number)</code></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/5/2021, 3:13:09 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       &lt;
       <a href="/blog/pages/001interview/02cpp.html" class="prev">
         C++
@@ -128,6 +128,6 @@
       </a>
       &gt;
     </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
-    <script src="/blog/assets/js/app.f13bb8da.js" defer></script><script src="/blog/assets/js/2.618b117f.js" defer></script><script src="/blog/assets/js/4.caf63442.js" defer></script>
+    <script src="/blog/assets/js/app.346c933e.js" defer></script><script src="/blog/assets/js/2.9253eddc.js" defer></script><script src="/blog/assets/js/4.288bf4db.js" defer></script>
   </body>
 </html>
