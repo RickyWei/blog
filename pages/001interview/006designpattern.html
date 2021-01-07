@@ -8,7 +8,7 @@
     <link rel="icon" href="/blog/icon.png">
     <meta name="description" content="Think More, Code Less">
     
-    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.12a9dc47.js" as="script"><link rel="preload" href="/blog/assets/js/2.9253eddc.js" as="script"><link rel="preload" href="/blog/assets/js/9.f8b7d5cd.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4094bcdc.js"><link rel="prefetch" href="/blog/assets/js/11.7014511e.js"><link rel="prefetch" href="/blog/assets/js/12.7e99ea86.js"><link rel="prefetch" href="/blog/assets/js/13.a6ad773c.js"><link rel="prefetch" href="/blog/assets/js/14.19d74610.js"><link rel="prefetch" href="/blog/assets/js/15.2a2283d7.js"><link rel="prefetch" href="/blog/assets/js/3.05ea469a.js"><link rel="prefetch" href="/blog/assets/js/4.61525ff9.js"><link rel="prefetch" href="/blog/assets/js/5.3e680f6a.js"><link rel="prefetch" href="/blog/assets/js/6.0e9f2a5d.js"><link rel="prefetch" href="/blog/assets/js/7.33775d2e.js"><link rel="prefetch" href="/blog/assets/js/8.21f86d71.js">
+    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.83fbb2da.js" as="script"><link rel="preload" href="/blog/assets/js/2.9253eddc.js" as="script"><link rel="preload" href="/blog/assets/js/9.4bd367e3.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4094bcdc.js"><link rel="prefetch" href="/blog/assets/js/11.7014511e.js"><link rel="prefetch" href="/blog/assets/js/12.820d9ab7.js"><link rel="prefetch" href="/blog/assets/js/13.a6ad773c.js"><link rel="prefetch" href="/blog/assets/js/14.19d74610.js"><link rel="prefetch" href="/blog/assets/js/15.2a2283d7.js"><link rel="prefetch" href="/blog/assets/js/3.05ea469a.js"><link rel="prefetch" href="/blog/assets/js/4.61525ff9.js"><link rel="prefetch" href="/blog/assets/js/5.d266e045.js"><link rel="prefetch" href="/blog/assets/js/6.0e9f2a5d.js"><link rel="prefetch" href="/blog/assets/js/7.33775d2e.js"><link rel="prefetch" href="/blog/assets/js/8.b52ea699.js">
     <link rel="stylesheet" href="/blog/assets/css/0.styles.928a57d1.css">
   </head>
   <body>
@@ -64,12 +64,12 @@ Single <span class="token operator">&amp;</span><span class="token class-name">S
 <ol><li>服务端：服务接口，服务实现，服务暴露（把自己ip注册到注册中心，可以被客户端发现）</li> <li>客户端：服务接口，服务引用</li></ol></li> <li>流程
 <ol><li>服务消费方（client）以本地调用方式调用服务；</li> <li>client stub接收到调用后负责将方法、参数等组装成能够进行网络传输的消息体；</li> <li>client stub找到服务地址，并将消息发送到服务端；</li> <li>server stub收到消息后进行解码；</li> <li>server stub根据解码结果 反射调用 本地的服务；</li> <li>本地服务执行并将结果返回给server stub；</li> <li>server stub将返回结果打包成消息并发送至消费方；</li> <li>client stub接收到消息，并进行解码；</li> <li>服务消费方得到最终结果</li></ol></li></ol> <h2 id="mq"><a href="#mq" class="header-anchor">#</a> mq</h2> <ol><li>应用场景
 <ol><li>异步处理：处理如短信下发、状态推送、用户注册、数据同步等功能，提高系统的并发能力，集中力量处理重要的部分（同步处理），将非核心功能丢给MQ</li> <li>系统解耦：可在模块、服务、接口等不同粒度上实现解耦</li> <li>重试补偿：在跨机器数据传输的整个过程中，只要任意一个环节出错，都会导致问题的产生。可以通过MQ的重试补偿机制去尽可能的处理掉这些异常</li> <li>流量削锋：对于秒杀场景下的下单处理。服务器收到消息后，首先写入消息队列，然后按照自己的消息处理能力做处理</li> <li>日志处理：可以定时将日志写入MQ，并且主动订阅日志记录</li></ol></li> <li>组件
-<ol><li>1、消息服务器Broker：消息服务器，作为server提供消息核心服务</li> <li>消息生产者Producer：发送消息到消息队列</li> <li>消息消费者Consumer：从消息队列接收消息</li> <li>消息队列Queue：一个先进先出的消息存储区域。消息按照顺序发送接收，一旦消息被消费处理，该消息将从队列中删除</li></ol></li> <li>消息模式
-<ol><li>点对点，FIFO每个消息只能被某一个消费者消费一次</li> <li>订阅和发布</li></ol></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/5/2021, 3:13:09 AM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/blog/pages/001interview/01algorithm.html">
+<ol><li>消息服务器Broker：消息服务器，作为server提供消息核心服务</li> <li>消息生产者Producer：发送消息到消息队列</li> <li>消息消费者Consumer：从消息队列接收消息</li> <li>消息队列Queue：一个先进先出的消息存储区域。消息按照顺序发送接收，一旦消息被消费处理，该消息将从队列中删除</li></ol></li> <li>消息模式
+<ol><li>点对点，FIFO每个消息只能被某一个消费者消费一次</li> <li>订阅和发布</li></ol></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/7/2021, 11:26:35 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/blog/pages/001interview/01algorithm.html">
         Algorithm
       </a>
       &gt;
     </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
-    <script src="/blog/assets/js/app.12a9dc47.js" defer></script><script src="/blog/assets/js/2.9253eddc.js" defer></script><script src="/blog/assets/js/9.f8b7d5cd.js" defer></script>
+    <script src="/blog/assets/js/app.83fbb2da.js" defer></script><script src="/blog/assets/js/2.9253eddc.js" defer></script><script src="/blog/assets/js/9.4bd367e3.js" defer></script>
   </body>
 </html>
