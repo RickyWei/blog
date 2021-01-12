@@ -8,7 +8,7 @@
     <link rel="icon" href="/blog/icon.png">
     <meta name="description" content="Think More, Code Less">
     
-    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.c6b7aeb2.js" as="script"><link rel="preload" href="/blog/assets/js/2.9253eddc.js" as="script"><link rel="preload" href="/blog/assets/js/3.05ea469a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4094bcdc.js"><link rel="prefetch" href="/blog/assets/js/11.7014511e.js"><link rel="prefetch" href="/blog/assets/js/12.9ca9071d.js"><link rel="prefetch" href="/blog/assets/js/13.a6ad773c.js"><link rel="prefetch" href="/blog/assets/js/14.19d74610.js"><link rel="prefetch" href="/blog/assets/js/15.2a2283d7.js"><link rel="prefetch" href="/blog/assets/js/4.b64bf3de.js"><link rel="prefetch" href="/blog/assets/js/5.d266e045.js"><link rel="prefetch" href="/blog/assets/js/6.0e9f2a5d.js"><link rel="prefetch" href="/blog/assets/js/7.33775d2e.js"><link rel="prefetch" href="/blog/assets/js/8.2c395b51.js"><link rel="prefetch" href="/blog/assets/js/9.909d4cbb.js">
+    <link rel="preload" href="/blog/assets/css/0.styles.928a57d1.css" as="style"><link rel="preload" href="/blog/assets/js/app.79d87cd2.js" as="script"><link rel="preload" href="/blog/assets/js/2.9253eddc.js" as="script"><link rel="preload" href="/blog/assets/js/3.586ae9c3.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.4094bcdc.js"><link rel="prefetch" href="/blog/assets/js/11.7014511e.js"><link rel="prefetch" href="/blog/assets/js/12.e79df60f.js"><link rel="prefetch" href="/blog/assets/js/13.a6ad773c.js"><link rel="prefetch" href="/blog/assets/js/14.19d74610.js"><link rel="prefetch" href="/blog/assets/js/15.2a2283d7.js"><link rel="prefetch" href="/blog/assets/js/4.b64bf3de.js"><link rel="prefetch" href="/blog/assets/js/5.d266e045.js"><link rel="prefetch" href="/blog/assets/js/6.0e9f2a5d.js"><link rel="prefetch" href="/blog/assets/js/7.22a0f9b6.js"><link rel="prefetch" href="/blog/assets/js/8.2c395b51.js"><link rel="prefetch" href="/blog/assets/js/9.909d4cbb.js">
     <link rel="stylesheet" href="/blog/assets/css/0.styles.928a57d1.css">
   </head>
   <body>
@@ -57,8 +57,8 @@
 <ol><li>一些文件也许会周期性的更改，但是内容并不改变（仅改变修改时间），这时候我们并不希望客户端认为这个文件被修改了，而重新 GET</li> <li>某些文件修改非常频繁，例如：在秒以下的时间内进行修改（1s 内修改了 N 次），If-Modified-Since 能检查到的粒度是 s 级的，这种修改无法判断（或者说 UNIX 记录 MTIME 只能精确到秒）。</li> <li>某些服务器不能精确的得到文件的最后修改时间</li></ol></li></ol> <h2 id="https"><a href="#https" class="header-anchor">#</a> https</h2> <ol><li>https流程<img src="/blog/assets/img/https.96b0ddb0.png" alt="https"> <ol><li>client hello
 <ol><li>客户端支持的 SSL/TLS 协议版本</li> <li>客户端生产的随机数（Client Random），后面用于生产「会话秘钥」</li> <li>客户端支持的密码套件列表，如 RSA 加密算法</li></ol></li> <li>server hello
 <ol><li>确认 SSL/ TLS 协议版本，如果浏览器不支持，则关闭加密通信</li> <li>服务器生产的随机数（Server Random），后面用于生产「会话秘钥」</li> <li>确认的密码套件列表，如 RSA 加密算法</li> <li>服务器的数字证书</li></ol></li> <li>客户端回应
-<ol><li>验证证书，若成功则进行一下步骤</li> <li>一个随机数（pre-master key）该随机数会被服务器公钥加密</li> <li>加密通信算法改变通知，表示随后的信息都将用「会话秘钥」加密通信</li> <li>客户端握手结束通知，表示客户端的握手阶段已经结束，这一项同时把之前所有内容的发生的数据做个摘要，用来供服务端校验</li></ol></li> <li>服务器最后回应
-<ol><li>加密通信算法改变通知，表示随后的信息都将用「会话秘钥」加密通信</li> <li>服务器握手结束通知，表示服务器的握手阶段已经结束，这一项同时把之前所有内容的发生的数据做个摘要，用来供客户端校验</li></ol></li></ol></li> <li>https加密算法
+<ol><li>验证证书，若成功则进行一下步骤</li> <li>一个随机数（pre-master key）该随机数会被服务器公钥加密（生成des密钥，用服务器的公钥加密）</li> <li>加密通信算法改变通知，表示随后的信息都将用「会话秘钥」加密通信</li> <li>客户端握手结束通知，表示客户端的握手阶段已经结束，这一项同时把之前所有内容的发生的数据做个摘要，用来供服务端校验</li></ol></li> <li>服务器最后回应
+<ol><li>加密通信算法改变通知，表示随后的信息都将用「会话秘钥」加密通信（私钥解密之后用来加密的des）</li> <li>服务器握手结束通知，表示服务器的握手阶段已经结束，这一项同时把之前所有内容的发生的数据做个摘要，用来供客户端校验</li></ol></li></ol></li> <li>https加密算法
 <ol><li>使用非对称加密RSA加密会话密钥；涉及模运算慢</li> <li>后续使用加密后密钥对内容进行对称加密，如DES；位运算快</li> <li>两种加密权衡了安全和效率</li></ol></li> <li>CA（证书认证机构）
 <ol><li>证书的签发和验证<img src="/blog/assets/img/ca.05cec72f.jpg" alt="ca"> <ol><li>Signing阶段，首先撰写证书的元信息：签发人(Issuer)、地址、签发时间、过期失效等；当然，这些信息中还包含证书持有者(owner)的基本信息，例如owner的DN(DNS Name，即证书生效的域名)，owner的公钥等基本信息。</li> <li>通过通用的Hash算法将信息摘要提取出来；</li> <li>Hash摘要通过Issuer(CA)私钥进行非对称加密，生成一个签名密文；</li> <li>将签名密文attach到文件证书上，使之变成一个签名过的证书</li></ol></li> <li>浏览器和操作系统内置了信任的ca的公钥，用于验证证书</li> <li>证书链
 <ol><li>ca其实是一个层级关系，可以链式查询上层的的ca是否合法</li></ol></li></ol></li></ol> <h2 id="rsa和des"><a href="#rsa和des" class="header-anchor">#</a> rsa和des</h2> <ol><li>rsa
@@ -199,7 +199,7 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
 <ol><li>比如在留言板中留言<code>&lt;script&gt;alert(“hey!you are attacked”)&lt;/script&gt;</code>，之后打开会执行这个js</li> <li>解决
 <ol><li>替换&lt;&gt;等字符，注意包括大小写，注意xss使用eval()和字符编码，注意不存在连接后的错误处理函数</li></ol></li></ol></li> <li>csrf（跨站请求伪造）
 <ol><li>银行网站A，它以GET请求来完成银行转账的操作，如：http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000</li> <li>危险网站B，它里面有一段HTML的代码如下：</li> <li><code>&lt;img src=http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000&gt;</code></li> <li>首先，你登录了银行网站A，然后访问危险网站B，噢，这时你会发现你的银行账户少了1000块</li> <li>防御
-<ol><li>同源检测，http的refer字段标识请求来源，需要同一网站</li> <li>用户打开页面的时候，服务器需要给这个用户生成一个Token，该Token通过加密算法对数据进行加密，一般Token都包括随机字符串和时间戳的组合，显然在提交时Token不能再放在Cookie中了，否则又会被攻击者冒用。因此，为了安全起见Token最好还是存在服务器的Session中，之后在每次页面加载时，使用JS遍历整个DOM树，对于DOM中所有的a和form标签后加入Token。这样可以解决大部分的请求，但是对于在页面加载之后动态生成的HTML代码，这种方法就没有作用，还需要程序员在编码时手动添加Token</li></ol></li></ol></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/3/2021, 8:52:50 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+<ol><li>同源检测，http的refer字段标识请求来源，需要同一网站</li> <li>用户打开页面的时候，服务器需要给这个用户生成一个Token，该Token通过加密算法对数据进行加密，一般Token都包括随机字符串和时间戳的组合，显然在提交时Token不能再放在Cookie中了，否则又会被攻击者冒用。因此，为了安全起见Token最好还是存在服务器的Session中，之后在每次页面加载时，使用JS遍历整个DOM树，对于DOM中所有的a和form标签后加入Token。这样可以解决大部分的请求，但是对于在页面加载之后动态生成的HTML代码，这种方法就没有作用，还需要程序员在编码时手动添加Token</li></ol></li></ol></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/12/2021, 12:38:37 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       &lt;
       <a href="/blog/pages/001interview/03os.html" class="prev">
         OS
@@ -208,6 +208,6 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
       </a>
       &gt;
     </span></p></div> </main> <button type="button" class="nes-btn is-success scroll-btn"><span>&lt;</span></button></div><div class="global-ui"></div></div>
-    <script src="/blog/assets/js/app.c6b7aeb2.js" defer></script><script src="/blog/assets/js/2.9253eddc.js" defer></script><script src="/blog/assets/js/3.05ea469a.js" defer></script>
+    <script src="/blog/assets/js/app.79d87cd2.js" defer></script><script src="/blog/assets/js/2.9253eddc.js" defer></script><script src="/blog/assets/js/3.586ae9c3.js" defer></script>
   </body>
 </html>
